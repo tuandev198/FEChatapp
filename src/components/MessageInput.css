@@ -2,6 +2,16 @@
   border-top: 1px solid #e4e6eb;
   background: white;
   padding: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .message-input-container {
+    padding: 0.75rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0));
+  }
 }
 
 .image-previews {
@@ -64,10 +74,27 @@
   font-size: 1.2rem;
   transition: background 0.2s;
   flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
 }
 
 .image-upload-btn:hover {
   background: #e4e6eb;
+}
+
+.image-upload-btn:active {
+  background: #d0d2d6;
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .image-upload-btn {
+    padding: 0.625rem;
+  }
 }
 
 .message-input {
@@ -80,6 +107,15 @@
   resize: none;
   max-height: 120px;
   min-height: 40px;
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  .message-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.625rem;
+    min-height: 44px; /* Touch target */
+  }
 }
 
 .message-input:focus {
@@ -98,14 +134,28 @@
   cursor: pointer;
   transition: background 0.2s;
   flex-shrink: 0;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 .send-btn:hover:not(:disabled) {
   background: #0066cc;
 }
 
+.send-btn:active:not(:disabled) {
+  background: #0052a3;
+  transform: scale(0.98);
+}
+
 .send-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .send-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 

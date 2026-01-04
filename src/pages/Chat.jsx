@@ -13,6 +13,25 @@ const Chat = () => {
   const { logout, user } = useAuth();
   const [activeView, setActiveView] = useState('conversations');
   const [showProfileSettings, setShowProfileSettings] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
+  // Close sidebar on mobile when conversation is selected
+  useEffect(() => {
+    if (currentConversation && window.innerWidth <= 768) {
+      setSidebarOpen(false);
+    }
+  }, [currentConversation]);
+  
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setSidebarOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Switch to conversations tab when a conversation is selected
   useEffect(() => {
@@ -24,7 +43,28 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <div className="chat-sidebar">
+      {/* Mobile menu button */}
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Toggle menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay active"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      
+      <div className={`chat-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="chat-header">
           <h2>Chat</h2>
           <div className="user-info">

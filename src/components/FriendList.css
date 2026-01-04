@@ -3,6 +3,13 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .friend-list {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
 }
 
 .friend-list-tabs {
@@ -131,6 +138,15 @@
   font-weight: 500;
   transition: all 0.2s;
   flex-shrink: 0;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+.chat-btn:active,
+.add-btn:active,
+.accept-btn:active,
+.reject-btn:active {
+  transform: scale(0.95);
 }
 
 .chat-btn {
