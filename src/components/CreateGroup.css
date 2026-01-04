@@ -1,0 +1,174 @@
+.create-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  overflow: hidden;
+}
+
+.create-group-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.create-group-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1c1e21;
+}
+
+.create-group-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #0084ff;
+}
+
+.empty-friends {
+  padding: 2rem;
+  text-align: center;
+  color: #65676b;
+  background: #f5f6f6;
+  border-radius: 8px;
+}
+
+.friends-selection {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.friend-select-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e4e6eb;
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 0.75rem;
+}
+
+.friend-select-item:last-child {
+  border-bottom: none;
+}
+
+.friend-select-item:hover {
+  background: #f0f2f5;
+}
+
+.friend-select-item.selected {
+  background: #e7f3ff;
+}
+
+.friend-select-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.friend-select-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.friend-select-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-select-name {
+  font-weight: 500;
+  color: #1c1e21;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.friend-select-email {
+  font-size: 0.875rem;
+  color: #65676b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selected-check {
+  color: #0084ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.create-group-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #0084ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-group-btn:hover:not(:disabled) {
+  background: #0066cc;
+}
+
+.create-group-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
